@@ -1,6 +1,6 @@
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
 
-type SingleProduct = {
+export type SingleProduct = {
     "id": string,
     "title": string,
     "description": string,
@@ -14,7 +14,7 @@ type SingleProduct = {
     "images": string[]
 };
 
-type Products = {
+export type Products = {
     "products" : SingleProduct[],
     "total": number,
     "skip": number,
