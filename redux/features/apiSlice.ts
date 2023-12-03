@@ -1,32 +1,19 @@
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
 
-export type SingleProduct = {
-    "id": string,
-    "title": string,
-    "description": string,
-    "price": number,
-    "discountPercentage": number,
-    "rating": number,
-    "stock": number,
-    "brand": string,
-    "category": string,
-    "thumbnail": string,
-    "images": string[]
-};
+export type Article = {
+    id: number,
+    title: string,
+    content: string
+}
 
-export type Products = {
-    "products" : SingleProduct[],
-    "total": number,
-    "skip": number,
-    "limit": number,
-};
+export type Data = Article[]
 
 export const productsApi = createApi({
     reducerPath: 'productsApi',
-    baseQuery: fetchBaseQuery({baseUrl: 'https://dummyjson.com/'}),
+    baseQuery: fetchBaseQuery({baseUrl: 'http://localhost:5000/'}),
     endpoints: (builder) => ({
-        getAllProducts: builder.query<Products, void>({
-            query: () => 'products',
+        getAllProducts: builder.query<Data, void>({
+            query: () => 'api/article',
         }),
     }),
 });
