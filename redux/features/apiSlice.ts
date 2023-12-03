@@ -8,14 +8,14 @@ export type Article = {
 
 export type Data = Article[]
 
-export const productsApi = createApi({
+export const articlesApi = createApi({
     reducerPath: 'productsApi',
     baseQuery: fetchBaseQuery({baseUrl: 'http://localhost:5000/'}),
     endpoints: (builder) => ({
-        getAllProducts: builder.query<Data, void>({
+        getAllArticles: builder.query<Data, void>({
             query: () => 'api/article',
         }),
     }),
 });
 
-export const { useGetAllProductsQuery } = productsApi;
+export const { useGetAllArticlesQuery } = articlesApi;
